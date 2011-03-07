@@ -37,7 +37,7 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %files
-%defattr(644,root,root)
+%defattr(644, root, root)
 %attr(755, root, root) %{_bindir}/low_level_make_sandbox
 %attr(755, root, root) %{_bindir}/make_multiple_custom_sandbox
 %attr(755, root, root) %{_bindir}/make_multiple_sandbox
