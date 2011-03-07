@@ -3,7 +3,7 @@ Version: 3.0.17
 Release: 1%{?dist}
 License: GPLv2
 Group: System Environment/Libraries
-Summary: Quick painless install of side MySQL server in isolation 
+Summary: Quick painless install of side by side MySQL server in isolation 
 URL: https://launchpad.net/mysql-sandbox 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Source0: http://launchpad.net/mysql-sandbox/mysql-sandbox-3/mysql-sandbox-3/+download/MySQL-Sandbox-%{version}.tar.gz 
@@ -13,9 +13,9 @@ Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 BuildRequires:  perl(ExtUtils::MakeMaker), perl(Test::More)
 
 %description
-Quick painless install of side MySQL server in isolation. MySQL Sandbox is a 
-tool for installing one or more MySQL servers in isolation, without 
-affecting other servers.
+Quick painless install of side by side MySQL server in isolation. 
+MySQL Sandbox is a tool for installing one or more MySQL servers 
+in isolation, without affecting other servers.
 
 %prep
 %setup -q -n MySQL-Sandbox-3.0.17
@@ -50,9 +50,7 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/sbtool
 %attr(755, root, root) %{_bindir}/test_sandbox
 
-%{perl_vendorlib}/MySQL/Sandbox.pm
-%{perl_vendorlib}/MySQL/Sandbox/Recipes.pm
-%{perl_vendorlib}/MySQL/Sandbox/Scripts.pm
+%{perl_vendorlib}/MySQL/
 
 # http://fedoraproject.org/wiki/Packaging/Perl#Directory_Ownership
 %exclude %{perl_vendorarch}/auto/
