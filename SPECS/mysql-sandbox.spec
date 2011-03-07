@@ -18,7 +18,7 @@ MySQL Sandbox is a tool for installing one or more MySQL servers
 in isolation, without affecting other servers.
 
 %prep
-%setup -q -n MySQL-Sandbox-3.0.17
+%setup -q -n MySQL-Sandbox-%{version}
 
 %build
 # avoid CPAN entirely
