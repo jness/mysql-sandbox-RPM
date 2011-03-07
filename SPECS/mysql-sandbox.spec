@@ -20,6 +20,8 @@ affecting other servers.
 %setup -q -n MySQL-Sandbox-3.0.17
 
 %build
+# avoid CPAN entirely
+# http://fedoraproject.org/wiki/Packaging/Perl#Useful_tips
 PERL5_CPANPLUS_IS_RUNNING=1 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %{__make} %{?_smp_mflags}
 
