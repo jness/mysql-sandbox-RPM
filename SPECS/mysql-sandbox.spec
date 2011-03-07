@@ -7,11 +7,9 @@ Summary: Quick painless install of side MySQL server in isolation
 URL: https://launchpad.net/mysql-sandbox 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Source0: http://launchpad.net/mysql-sandbox/mysql-sandbox-3/mysql-sandbox-3/+download/MySQL-Sandbox-%{version}.tar.gz 
-BuildArch: noarch
 
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 BuildRequires:  perl(ExtUtils::MakeMaker), perl(Test::More)
-
 
 %description
 Quick painless install of side MySQL server in isolation. MySQL Sandbox is a 
@@ -36,7 +34,8 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %files
-
+%defattr(644,root,root)
+# Binaries
 %{_bindir}/low_level_make_sandbox
 %{_bindir}/make_multiple_custom_sandbox
 %{_bindir}/make_multiple_sandbox
@@ -49,11 +48,15 @@ rm -rf %{buildroot}
 %{_bindir}/sbtool
 %{_bindir}/test_sandbox
 
+# Perl Mods
 %{perl_vendorlib}/MySQL/Sandbox.pm
 %{perl_vendorlib}/MySQL/Sandbox/Recipes.pm
 %{perl_vendorlib}/MySQL/Sandbox/Scripts.pm
-%{perl_vendorlib}/i386-linux-thread-multi/auto/MySQL/Sandbox/.packlist
 
+# http://fedoraproject.org/wiki/Packaging/Perl#Directory_Ownership
+%exclude %{perl_vendorarch}/auto/
+
+# Man Pages
 %{_mandir}/man3/MySQL::Sandbox.3pm.gz
 %{_mandir}/man3/MySQL::Sandbox::Recipes.3pm.gz
 %{_mandir}/man3/MySQL::Sandbox::Scripts.3pm.gz
