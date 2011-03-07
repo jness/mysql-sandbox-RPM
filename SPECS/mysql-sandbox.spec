@@ -63,4 +63,4 @@ rm -rf %{buildroot}
 * Mon Mar 07 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-1
 - Initial Build
 - Not every binry/script has a man page, I'm checking with upstream:
-  http://fedoraproject.org/wiki/PackagingGuidelines#Man_pages
+  https://answers.launchpad.net/mysql-sandbox/+question/148179
