@@ -2,7 +2,7 @@ Name: mysql-sandbox
 Version: 3.0.17
 Release: 1%{?dist}
 License: GPLv2
-Group: System Environment/Libraries
+Group: Development/Libraries
 Summary: Quick painless install of side by side MySQL server in isolation 
 URL: https://launchpad.net/mysql-sandbox 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
