@@ -1,0 +1,11 @@
+--- MySQL-Sandbox-3.0.17/lib/MySQL/Sandbox/Scripts.pm.orig	2011-03-15 14:07:37.000000000 -0500
++++ MySQL-Sandbox-3.0.17/lib/MySQL/Sandbox/Scripts.pm	2011-03-15 14:07:50.000000000 -0500
+@@ -1157,7 +1157,7 @@
+ 
+     'grants.mysql'  => <<'GRANTS_MYSQL',
+ 
+-use mysql;
++USE mysql;
+ set password=password('_DBPASSWORD_');
+ grant all on *.* to _DBUSER_@'_REMOTE_ACCESS_' identified by '_DBPASSWORD_';
+ grant all on *.* to _DBUSER_@'localhost' identified by '_DBPASSWORD_';

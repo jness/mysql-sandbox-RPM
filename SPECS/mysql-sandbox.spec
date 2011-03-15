@@ -9,6 +9,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Source0: http://launchpad.net/mysql-sandbox/mysql-sandbox-3/mysql-sandbox-3/+download/MySQL-Sandbox-%{version}.tar.gz 
 BuildArch: noarch
 
+Patch0: MySQL-Sandbox-3.0.17_perl_mysql_required.patch
+
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 BuildRequires:  perl(ExtUtils::MakeMaker), perl(Test::More)
 
@@ -19,6 +21,7 @@ in isolation, without affecting other servers.
 
 %prep
 %setup -q -n MySQL-Sandbox-%{version}
+%patch0 -p1
 
 %build
 # avoid CPAN entirely
@@ -50,7 +53,6 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/sbtool
 %attr(755, root, root) %{_bindir}/test_sandbox
 
-%attr(755, root, root) %{perl_vendorlib}/MySQL/
 %attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Recipes.pm
 %attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Scripts.pm
 %attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox.pm
@@ -64,6 +66,10 @@ rm -rf %{buildroot}
 %{_mandir}/man3/MySQL::Sandbox::Scripts.3pm.gz
 
 %changelog
+* Tue Mar 15 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-2
+- Added: Patch0: MySQL-Sandbox-3.0.17_perl_mysql_required.patch
+  This resolves spurious dependency on perl(mysql)
+
 * Mon Mar 07 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-1
 - Initial Build
 - Not every binry/script has a man page, I'm checking with upstream:
