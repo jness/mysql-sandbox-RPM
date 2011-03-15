@@ -1,6 +1,6 @@
 Name: mysql-sandbox
 Version: 3.0.17
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2
 Group: Development/Libraries
 Summary: Quick painless install of side by side MySQL server in isolation 
