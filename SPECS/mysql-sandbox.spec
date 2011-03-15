@@ -50,7 +50,11 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/sbtool
 %attr(755, root, root) %{_bindir}/test_sandbox
 
-%{perl_vendorlib}/MySQL/
+%attr(755, root, root) %{perl_vendorlib}/MySQL/
+%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Recipes.pm
+%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Scripts.pm
+%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox.pm
+
 
 # http://fedoraproject.org/wiki/Packaging/Perl#Directory_Ownership
 %exclude %{perl_vendorarch}/auto/
