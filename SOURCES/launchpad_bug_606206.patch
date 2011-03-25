@@ -1,0 +1,13 @@
+--- MySQL-Sandbox-3.0.17/bin/make_sandbox_from_installed.orig	2011-03-25 10:47:29.000000000 -0500
++++ MySQL-Sandbox-3.0.17/bin/make_sandbox_from_installed	2011-03-25 10:48:12.000000000 -0500
+@@ -96,7 +96,9 @@
+         $found_install_db =1;
+     }
+     if ( glob("$prefix/lib/mysql/libmysqlclient*") 
+-       or glob( "$prefix/lib/libmysqlclient*")  ) {
++       or glob( "$prefix/lib/libmysqlclient*")
++       or glob( "$prefix/lib64/libmysqlclient*")  
++       or glob( "$prefix/lib64/mysql/libmysqlclient*")  ) {
+         $found_libraries =1;
+     }
+ }

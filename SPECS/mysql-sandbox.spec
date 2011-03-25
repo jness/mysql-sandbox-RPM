@@ -1,6 +1,6 @@
 Name: mysql-sandbox
 Version: 3.0.17
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPLv2
 Group: Development/Libraries
 Summary: Quick painless install of side by side MySQL server in isolation 
@@ -10,6 +10,7 @@ Source0: http://launchpad.net/mysql-sandbox/mysql-sandbox-3/mysql-sandbox-3/+dow
 BuildArch: noarch
 
 Patch0: MySQL-Sandbox-3.0.17_perl_mysql_required.patch
+Patch1: launchpad_bug_606206.patch
 
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 BuildRequires:  perl(ExtUtils::MakeMaker), perl(Test::More)
@@ -22,6 +23,7 @@ in isolation, without affecting other servers.
 %prep
 %setup -q -n MySQL-Sandbox-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 # avoid CPAN entirely
@@ -66,6 +68,10 @@ rm -rf %{buildroot}
 %{_mandir}/man3/MySQL::Sandbox::Scripts.3pm.gz
 
 %changelog
+* Tue Mar 15 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-3
+- Added: Patch1: launchpad_bug_606206.patch
+  https://bugs.launchpad.net/mysql-sandbox/+bug/606206
+
 * Tue Mar 15 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-2
 - Added: Patch0: MySQL-Sandbox-3.0.17_perl_mysql_required.patch
   This resolves spurious dependency on perl(mysql)
