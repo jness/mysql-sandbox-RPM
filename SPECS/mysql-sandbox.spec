@@ -1,6 +1,6 @@
 Name: mysql-sandbox
 Version: 3.0.17
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: GPLv2
 Group: Development/Libraries
 Summary: Quick painless install of side by side MySQL server in isolation 
@@ -72,6 +72,10 @@ rm -rf %{buildroot}
 %{_mandir}/man3/MySQL::Sandbox::Scripts.3pm.gz
 
 %changelog
+* Mon May 16 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-4
+- To avoid conflict with lrzsz's binary we renamed sb to mysql-sandbox
+  https://answers.launchpad.net/mysql-sandbox/+question/151299
+
 * Tue Mar 15 2011 Jeffrey Ness <jeffrey.ness@rackspace.com> - 3.0.17-3
 - Added: Patch1: launchpad_bug_606206.patch
   https://bugs.launchpad.net/mysql-sandbox/+bug/606206
