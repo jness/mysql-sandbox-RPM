@@ -1,3 +1,13 @@
+%if 0%{?fedora} <= 14
+%define pvendorlib %{perl_privlib}
+%endif
+%if 0%{?fedora} >= 15
+%define pvendorlib %{perl_vendorlib}
+%endif
+%if 0%{?rhel} >= 5
+%define pvendorlib %{perl_vendorlib}
+%endif
+
 Name: mysql-sandbox
 Version: 3.0.17
 Release: 4%{?dist}
@@ -59,9 +69,9 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/sbtool
 %attr(755, root, root) %{_bindir}/test_sandbox
 
-%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Recipes.pm
-%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox/Scripts.pm
-%attr(644, root, root) %{perl_vendorlib}/MySQL/Sandbox.pm
+%attr(644, root, root) %{pvendorlib}/MySQL/Sandbox/Recipes.pm
+%attr(644, root, root) %{pvendorlib}/MySQL/Sandbox/Scripts.pm
+%attr(644, root, root) %{pvendorlib}/MySQL/Sandbox.pm
 
 
 # http://fedoraproject.org/wiki/Packaging/Perl#Directory_Ownership
