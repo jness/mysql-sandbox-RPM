@@ -38,6 +38,10 @@ PERL5_CPANPLUS_IS_RUNNING=1 %{__perl} Makefile.PL INSTALLDIRS=vendor
 rm -rf %{buildroot}
 %{__make} install PERL_INSTALL_ROOT=%{buildroot}
 
+# To avoid conflict with lrzsz's sb binary
+# https://answers.launchpad.net/mysql-sandbox/+question/151299
+%{__mv} %{buildroot}%{_bindir}/sb %{buildroot}%{_bindir}/mysql-sandbox
+
 %clean
 rm -rf %{buildroot}
 
@@ -51,7 +55,7 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/make_sandbox_from_installed
 %attr(755, root, root) %{_bindir}/make_sandbox_from_source
 %attr(755, root, root) %{_bindir}/msandbox
-%attr(755, root, root) %{_bindir}/sb
+%attr(755, root, root) %{_bindir}/mysql-sandbox
 %attr(755, root, root) %{_bindir}/sbtool
 %attr(755, root, root) %{_bindir}/test_sandbox
 
